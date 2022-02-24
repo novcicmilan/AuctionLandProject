@@ -1,0 +1,15 @@
+server:
+  port: 6666
+
+spring:
+  jackson.default-property-inclusion: NON_NULL
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:8001/auth_service
+    username: root
+    password: password
+    sql-script-encoding: UTF-8
+    initialization-mode: always
