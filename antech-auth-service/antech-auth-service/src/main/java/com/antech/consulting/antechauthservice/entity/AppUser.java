@@ -5,6 +5,7 @@ import com.antech.consulting.antechauthservice.constants.AntechAuthenticationDbC
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -14,8 +15,14 @@ import java.util.Set;
 @Entity
 @Table(name = AntechAuthenticationDbConstants.AppUser)
 public class AppUser {
+
     @Id
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+    private String uuid;
+
     @EqualsAndHashCode.Include
+    @Column
     private String appUserUsername;
 
     @Column(nullable = false)
@@ -27,6 +34,7 @@ public class AppUser {
             joinColumns = @JoinColumn(name = AntechAuthenticationColumnConstants.FK_AppUser_Id),
             inverseJoinColumns = @JoinColumn(name = AntechAuthenticationColumnConstants.FK_Role_Id)
     )
-    private Set<Role> roles;
 
+    @Column
+    private Set<Role> roles;
 }
