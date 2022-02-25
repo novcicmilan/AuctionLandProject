@@ -25,8 +25,8 @@ public class AppUser {
     @JoinTable(
             name = AntechAuthenticationDbConstants.AppUser_UserRole,
             joinColumns = @JoinColumn(name = AntechAuthenticationColumnConstants.FK_AppUser_Id),
-            inverseJoinColumns = @JoinColumn(name = AntechAuthenticationColumnConstants.FK_UserRole_Id)
+            inverseJoinColumns = @JoinColumn(name = AntechAuthenticationColumnConstants.FK_Role_Id)
     )
-    private Set<AppUserRole> roles;
+    private Set<Role> roles;
 
 }
