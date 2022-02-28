@@ -1,4 +1,4 @@
-package com.antech.consulting.antechauthservice.dto;
+package com.antech.consulting.antechauthservice.dto.Role;
 
 import lombok.Getter;
 import lombok.Setter;
